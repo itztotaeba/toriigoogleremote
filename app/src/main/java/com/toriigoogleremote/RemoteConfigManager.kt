@@ -5,14 +5,13 @@ import com.google.firebase.Firebase
 import com.google.firebase.remoteconfig.get
 import com.google.firebase.remoteconfig.remoteConfig
 import com.google.firebase.remoteconfig.remoteConfigSettings
-import kotlinx.coroutines.runBlocking
 
 /**
  * Pembungkus sederhana untuk Firebase Remote Config.
  *
  * Alur kerja:
  * 1. Nilai default diambil dari res/xml/remote_config_defaults.xml (fallback lokal).
- * 2. Aplikasi melakukan fetch + activate ke server Firebase.
+ * 2. Aplikasi melakukan fetch + activate ke server Firebase (via coroutine, suspend API).
  * 3. Jika jaringan gagal, nilai default / cache terakhir yang dipakai.
  */
 class RemoteConfigManager(context: Context) {
@@ -40,12 +39,14 @@ class RemoteConfigManager(context: Context) {
 
     /**
      * Mengambil konfigurasi terbaru dari server lalu mengaktifkannya.
+     * Fungsi suspend — dipanggil langsung dari coroutine scope Compose
+     * (tidak perlu runBlocking / Thread lagi).
+     *
      * @return true jika fetch & activate berhasil.
      */
-    fun fetchAndActivate(): Boolean {
+    suspend fun fetchAndActivate(): Boolean {
         return try {
-            // API suspend di bungkus runBlocking agar mudah dipakai dari Activity sederhana.
-            runBlocking { remoteConfig.fetchAndActivate() }
+            remoteConfig.fetchAndActivate()
         } catch (e: Exception) {
             // Offline atau error lain -> tetap pakai nilai default/cache.
             false

@@ -11,4 +11,7 @@
     <string name="default_welcome_message">Memuat pesan…</string>
     <string name="default_max_items">Maksimum item: –</string>
     <string name="default_status">Belum pernah sinkronisasi</string>
+
+    <!-- Teks pada banner remote-config -->
+    <string name="banner_text">Banner ini dikendalikan Firebase Remote Config</string>
 </resources>

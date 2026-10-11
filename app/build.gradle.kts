@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.services)
+    // Compiler plugin untuk Jetpack Compose (versi Kotlin harus cocok dengan AGP/Kotlin toolchain)
+    alias(libs.plugins.kotlin.compose.compiler)
 }
 
 android {
@@ -10,8 +12,8 @@ android {
     }
 
     buildFeatures {
-        // ActivityMainBinding dipakai di MainActivity
-        viewBinding = true
+        // UI dibangun sepenuhnya dengan Jetpack Compose — tidak perlu viewBinding lagi.
+        compose = true
     }
 
     defaultConfig {
@@ -39,13 +41,22 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.material)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+
+    // Jetpack Compose (versi tiap artefak dikelola oleh BOM)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.graphics)
+    implementation(libs.compose.ui.tooling.preview)
+    implementation(libs.compose.material3)
+    debugImplementation(libs.compose.ui.tooling)
+
     // Firebase (BoM menyesuaikan versi semua library firebase otomatis)
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.config)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
