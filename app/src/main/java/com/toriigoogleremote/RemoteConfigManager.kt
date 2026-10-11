@@ -5,6 +5,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.remoteconfig.get
 import com.google.firebase.remoteconfig.remoteConfig
 import com.google.firebase.remoteconfig.remoteConfigSettings
+import kotlinx.coroutines.tasks.await
 
 /**
  * Pembungkus sederhana untuk Firebase Remote Config.
@@ -46,7 +47,7 @@ class RemoteConfigManager(context: Context) {
      */
     suspend fun fetchAndActivate(): Boolean {
         return try {
-            remoteConfig.fetchAndActivate()
+            remoteConfig.fetchAndActivate().await()
         } catch (e: Exception) {
             // Offline atau error lain -> tetap pakai nilai default/cache.
             false

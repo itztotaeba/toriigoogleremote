@@ -1,6 +1,8 @@
-package com.toriigoogleremote
+package com.toriigoogleremote.ui
 
 import android.graphics.Color
+import com.toriigoogleremote.RemoteConfigManager
+import com.toriigoogleremote.R
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

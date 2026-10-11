@@ -1,14 +1,13 @@
 {
-  "_comment": "GANTI FILE INI dengan google-services.json asli dari Firebase Console > Project Settings > Your apps > Android app com.toriigoogleremote. File placeholder ini hanya agar plugin google-services tidak gagal saat kompilasi awal.",
   "project_info": {
-    "project_number": "000000000000",
-    "project_id": "torii-google-remote-placeholder",
-    "storage_bucket": "torii-google-remote-placeholder.appspot.com"
+    "project_number": "1073687480411",
+    "project_id": "hwremote-72452",
+    "storage_bucket": "hwremote-72452.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
+        "mobilesdk_app_id": "1:1073687480411:android:0c9f79039a78994d15d77e",
         "android_client_info": {
           "package_name": "com.toriigoogleremote"
         }
@@ -16,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyPLACEHOLDER_REPLACE_WITH_REAL_KEY"
+          "current_key": "AIzaSyC-j5gtaJEm_lQukS3lAyhKSwgWaSzzsg0"
         }
       ],
       "services": {

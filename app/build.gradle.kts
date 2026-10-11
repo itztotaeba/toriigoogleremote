@@ -56,6 +56,8 @@ dependencies {
     // Firebase (BoM menyesuaikan versi semua library firebase otomatis)
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.config)
+    implementation(libs.firebase.analytics)
+    implementation(libs.coroutines.play.services)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
