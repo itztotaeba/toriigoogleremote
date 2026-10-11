@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Nilai DEFAULT Remote Config (fallback lokal).
+    Key yang sama harus didaftarkan di Firebase Console > Remote Config,
+    dengan tipe yang sesuai (string / boolean / number).
+-->
+<defaultsMap>
+    <entry>
+        <key>welcome_message</key>
+        <value>Halo! Ini pesan bawaan (offline/default).</value>
+    </entry>
+    <entry>
+        <key>show_banner</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>banner_color</key>
+        <value>#FF9800</value>
+    </entry>
+    <entry>
+        <key>max_items</key>
+        <value>10</value>
+    </entry>
+</defaultsMap>
