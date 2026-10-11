@@ -1,11 +1,17 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.services)
 }
 
 android {
     namespace = "com.toriigoogleremote"
     compileSdk {
         version = release(37)
+    }
+
+    buildFeatures {
+        // ActivityMainBinding dipakai di MainActivity
+        viewBinding = true
     }
 
     defaultConfig {
@@ -35,7 +41,11 @@ android {
 dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.constraintlayout)
     implementation(libs.material)
+    // Firebase (BoM menyesuaikan versi semua library firebase otomatis)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.config)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
